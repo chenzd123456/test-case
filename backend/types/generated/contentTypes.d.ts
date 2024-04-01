@@ -794,6 +794,7 @@ export interface ApiCaseCase extends Schema.CollectionType {
     singularName: 'case';
     pluralName: 'cases';
     displayName: 'case';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -801,6 +802,11 @@ export interface ApiCaseCase extends Schema.CollectionType {
   attributes: {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Blocks;
+    models: Attribute.Relation<
+      'api::case.case',
+      'manyToMany',
+      'api::model.model'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -824,6 +830,11 @@ export interface ApiModelModel extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Unique;
     description: Attribute.Blocks;
+    cases: Attribute.Relation<
+      'api::model.model',
+      'manyToMany',
+      'api::case.case'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

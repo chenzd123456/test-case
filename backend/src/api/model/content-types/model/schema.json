@@ -17,6 +17,12 @@
     },
     "description": {
       "type": "blocks"
+    },
+    "cases": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::case.case",
+      "mappedBy": "models"
     }
   }
 }
