@@ -801,12 +801,12 @@ export interface ApiCaseCase extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    description: Attribute.Blocks;
     models: Attribute.Relation<
       'api::case.case',
       'manyToMany',
       'api::model.model'
     >;
+    description: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
