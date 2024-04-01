@@ -16,14 +16,14 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "blocks"
-    },
     "models": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::model.model",
       "inversedBy": "cases"
+    },
+    "description": {
+      "type": "richtext"
     }
   }
 }
